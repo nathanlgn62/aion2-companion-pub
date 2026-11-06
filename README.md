@@ -89,11 +89,14 @@ Built with an ultra-lightweight Rust desktop core (Tauri v2) and a modern UI pow
 
 ## Key Features
 
-### 1. In-Game Transparent HUD Overlay
-- **Always On Top**: Floats seamlessly above your game client in borderless or windowed mode.
+### 1. In-Game Transparent HUD Overlay & Ultra-Minimal Mode
+- **Two Display Modes (Classic & Ultra-Minimal)**:
+  - **Classic HUD (`460×680`)**: Rich dark-steel and gold Atréia aesthetic with detailed category badges and progress bars.
+  - **Ultra-Minimal Mode (`350×440`)**: Ultra-compact layout featuring single-line tasks, a vertical dropdown tab selector, streamlined popups, and high-contrast text shadows so it never obstructs your gameplay. Switch modes in one click directly from the header or settings.
+- **Independent Per-Mode Opacity**: Each display mode remembers its own transparency level—adjust from **40% to 100%** in Classic mode, or go all the way down to **0% (100% transparent background)** in Ultra-Minimal mode.
+- **Always On Top**: Floats seamlessly above your game client in borderless or windowed mode (toggleable anytime via the header pin button in both modes).
 - **Click-Through Mode (`Alt + L`)**: Instantly locks the HUD into click-through mode, allowing all mouse and keyboard inputs to pass straight into Aion 2 while keeping your mission trackers fully visible.
 - **Collapsible Mini Pill (`Alt + O`)**: Collapse the entire overlay into an unobtrusive, floating diamond emblem with a single keystroke, or restore the full window anytime.
-- **Customizable Opacity**: Adjust background transparency (40% to 100%) on the fly via the quick-access header slider or settings menu to match any in-game environment.
 - **Smooth Window Dragging**: Reposition the HUD anywhere on your screens with ease.
 
 ---
@@ -111,11 +114,12 @@ Built with an ultra-lightweight Rust desktop core (Tauri v2) and a modern UI pow
 ### 3. Server Clock & Timezone Engine
 - **Independent Timezone Calibration**: Decouple your interface language from server time. Choose from pre-configured server regions (*Europe, Asia/Korea/Taiwan, Americas, Oceania*) or select any standard IANA timezone.
 - **Live Server Clock**: Always see the exact official server time directly in the HUD header and timetable.
-- **Smart Automatic Resets**:
+- **Smart Automatic Resets & Active-Tab Countdown**:
   - Customizable daily reset hour (default `09:00`).
   - Customizable weekly reset day and hour (default `Wednesday 09:00`).
+  - Custom reset schedules for user-created tabs (*Daily*, *Weekly*, *Monthly*, *Specific Date*, or *Manual only*).
   - Background tick engine detects when reset boundaries are crossed and clears your progression automatically.
-  - Live real-time countdown banners for both daily and weekly resets with hours (`h`) and minutes (`min`) formatting, plus manual override buttons.
+  - Dynamic live countdown displays the exact time remaining for the **currently active tab**, paired with a one-click manual reset button.
 
 ---
 
@@ -134,8 +138,12 @@ Stay ahead of every scheduled open-world event with synchronized timers and coun
 
 ---
 
-### 5. Curated Aion 2 Routine Codex & Free Tasks
-Comes pre-loaded with essential routines and caps for Aion 2 endgame:
+### 5. Curated Aion 2 Routine Codex, Custom Tabs & Free Tasks
+Comes pre-loaded with essential routines and caps for Aion 2 endgame, while giving you full freedom to organize your own tabs:
+- **Custom User Tabs with Personalized Reset Rules**:
+  - Create unlimited custom tabs alongside *Daily*, *Weekly*, and *Other* (persisted locally across restarts).
+  - Assign a tailored reset schedule to each custom tab: **No automatic reset**, **Daily** (custom hour), **Weekly** (custom weekday & hour), **Monthly** (day `1`–`31` & hour), or a **Specific Date & Hour**.
+  - Navigate effortlessly with a horizontal wheel-scrollable tab bar in Classic mode, or a compact vertical dropdown menu in Ultra-Minimal mode (with right-click support to edit or delete custom tabs).
 - **Daily Routines**:
   - Daily Vocations Missions (`5x` account-wide).
   - Nightmares (`2x` per character).
@@ -155,10 +163,10 @@ Comes pre-loaded with essential routines and caps for Aion 2 endgame:
   - Dedicated tab for freeform tasks that do not depend on periodic resets (e.g. *“Buy gear piece from broker”*, master crafting milestones, equipment goals).
 - **Interactive Controls**:
   - Multi-target step counters with `+` / `-` increment buttons.
+  - Smart hover popover that reveals the full task name whenever a long title is truncated.
   - Pin important tasks to the top of the list.
   - Drag-and-drop reordering with persistent saving.
   - Right-click context menu to edit or delete tasks.
-  - Filter by frequency tabs: *Daily*, *Weekly*, *Season / Other*, *Timetable*, and *Notes*.
   - One-click toggle to show or hide completed tasks.
 
 ---
@@ -195,9 +203,11 @@ Comes pre-loaded with essential routines and caps for Aion 2 endgame:
 | **`Alt + O`** | **Show / Hide Full Overlay** or expand from the mini pill. |
 | **`Alt + L`** | **Toggle Click-Through Mode** (allows all clicks to pass directly into Aion 2). |
 | **Header Left-Click Drag** | Reposition the HUD anywhere across your monitors. |
-| **Header Sliders Icon** | Open the quick opacity popover (adjust transparency from 40% to 100%). |
+| **Header Sliders Icon** | Open the quick opacity popover (40%–100% in Classic mode, 0%–100% in Ultra-Minimal mode). |
+| **Header Minimize / Maximize Icon** | Switch instantly between **Classic HUD** (`460×680`) and **Ultra-Minimal Mode** (`350×440`). |
 | **Header Pin Icon** | Toggle "Always On Top" window priority. |
-| **Task Right-Click** | Open task context menu (Edit details or Delete). |
+| **Folder+ Icon** | Create or manage custom user tabs and their automatic reset schedules. |
+| **Task / Custom Tab Right-Click** | Open context menu (Edit details or Delete). |
 | **Grip Handle Drag** | Drag-and-drop to reorder tasks within any tab. |
 | **Tray Icon Click** | Toggle overlay visibility from the system tray. |
 

@@ -93,11 +93,14 @@ Propulsé par un cœur natif en Rust (Tauri v2) et une interface soignée en Rea
 
 ## Fonctionnalités Clés
 
-### 1. Overlay HUD Transparent en Jeu
-- **Toujours au premier plan (Always on Top)** : Flotte directement sur le jeu en mode fenêtré sans bordure (*Borderless*) ou fenêtré.
+### 1. Overlay HUD Transparent & Mode Ultra-Minimal
+- **Deux Modes d'Affichage (Classique & Ultra-Minimal)** :
+  - **HUD Classique (`460×680`)** : Design riche aux couleurs d'Atréia (acier sombre et or) avec badges de catégories et barres de progression détaillées.
+  - **Mode Ultra-Minimal (`350×440`)** : Interface ultra-compacte pensée pour ne jamais gêner en plein combat : tâches condensées sur une ligne, sélecteur d'onglets en menu déroulant vertical, popups minimalistes et ombres portées haute lisibilité. Basculez d'un mode à l'autre en un clic depuis l'en-tête ou les paramètres.
+- **Opacité Indépendante par Mode** : Chaque mode mémorise son propre réglage de transparence — de **40% à 100%** en mode Classique, et de **0% (fond 100% transparent) à 100%** en mode Ultra-Minimal.
+- **Toujours au premier plan (Always on Top)** : Flotte directement sur le jeu en mode fenêtré sans bordure (*Borderless*) ou fenêtré (activable/désactivable à tout moment via l'icône d'épingle dans les deux modes).
 - **Mode Traversée de Clics (`Alt + L`)** : Rend l'overlay transparent aux clics de souris, vous permettant de continuer à jouer, cibler et combattre dans Aion 2 tout en gardant vos compteurs et vos objectifs affichés.
 - **Mode Réduit / Mini HUD (`Alt + O`)** : Réduisez l'overlay en une pastille compacte et discrète en un clic ou avec un raccourci clavier, et restaurez la fenêtre complète quand vous le souhaitez.
-- **Opacité Réglable (40% à 100%)** : Ajustez la transparence de fond en direct via le curseur rapide dans l'en-tête pour s'adapter à la luminosité de n'importe quelle zone en jeu.
 - **Déplacement libre** : Déplacez facilement le HUD par simple glisser-déposer sur n'importe quel écran.
 
 ---
@@ -117,12 +120,12 @@ Propulsé par un cœur natif en Rust (Tauri v2) et une interface soignée en Rea
 ### 3. Horloge Serveur & Gestion Intelligente des Resets
 - **Calibration indépendante du fuseau horaire** : Décorrélez la langue de l'interface de l'heure du serveur. Choisissez parmi les régions préconfigurées (*Europe, Asie/Corée/Taïwan, Amériques, Océanie*) ou n'importe quel fuseau IANA.
 - **Heure serveur en direct** : Affichage permanent de l'heure officielle du serveur dans l'en-tête et le calendrier des événements.
-- **Réinitialisations automatiques** :
+- **Réinitialisations automatiques & Timer de l'onglet actif** :
   - Reset quotidien personnalisable (par défaut `09:00`).
   - Reset hebdomadaire personnalisable (par défaut `Mercredi 09:00`).
-  - Détection automatique du franchissement des heures de reset pour réinitialiser la progression sans action manuelle.
-  - Bannières de compte à rebours précis en temps réel avec formatage en heures (`h`) et minutes (`min`).
-  - Boutons de réinitialisation manuelle d'urgence disponibles en cas de besoin.
+  - Cycles de reset personnalisés pour vos propres onglets (*Quotidien*, *Hebdomadaire*, *Mensuel*, *Date fixe* ou *Manuel*).
+  - Détection automatique du franchissement des échéances pour réinitialiser la progression sans action manuelle.
+  - Affichage dynamique du compte à rebours correspondant à **l'onglet actuellement sélectionné**, accompagné d'un bouton de réinitialisation manuelle rapide.
 
 ---
 
@@ -141,8 +144,12 @@ Ne manquez plus aucun événement majeur d'Atréia grâce aux alertes synchronis
 
 ---
 
-### 5. Codex de Routines d'Aion 2 & Tâches Libres
-Fourni avec les routines essentielles du jeu pré-remplies et traduites :
+### 5. Codex de Routines d'Aion 2, Onglets Personnalisés & Tâches Libres
+Fourni avec les routines essentielles du jeu pré-remplies et traduites, tout en vous permettant de créer vos propres catégories d'onglets :
+- **Onglets Personnalisés (Custom Tabs) & Resets sur mesure** :
+  - Créez autant d'onglets personnalisés que souhaité en complément de *Quotidien*, *Hebdo* et *Autres* (sauvegardés automatiquement à chaque redémarrage).
+  - Configurez une règle de réinitialisation propre à chaque onglet : **Aucun reset automatique**, **Quotidien** (heure au choix), **Hebdomadaire** (jour et heure au choix), **Mensuel** (jour du mois `1`–`31` et heure) ou **Date fixe** (date précise et heure).
+  - Navigation fluide via la barre horizontale déroulante à la molette en mode Classique, ou via le menu déroulant vertical en mode Ultra-Minimal (avec clic droit pour modifier ou supprimer un onglet).
 - **Routines Quotidiennes** :
   - Missions d'artisanat quotidiennes (`5x` compte).
   - Cauchemars (`2x` par personnage).
@@ -162,10 +169,10 @@ Fourni avec les routines essentielles du jeu pré-remplies et traduites :
   - Onglet dédié pour les tâches qui ne dépendent d'aucun cycle de réinitialisation automatique (ex : *« Acheter un objet à l'hôtel des ventes »*, confection d'une arme de maître, farm d'un set d'équipement).
 - **Contrôles interactifs** :
   - Compteurs d'étapes à cibles multiples avec boutons d'incrément `+` / `-`.
+  - Infobulle automatique (*popover*) au survol de la souris si le nom d'une tâche est tronqué.
   - Épinglage des tâches prioritaires en haut de liste.
   - Réorganisation fluide par glisser-déposer (*Drag & Drop*) persistante.
   - Menu contextuel au clic droit pour modifier ou supprimer rapidement une tâche.
-  - Filtrage rapide par onglets : *Daily*, *Weekly*, *Autre / Saison*, *Événements* et *Notes*.
   - Bascule en un clic pour masquer ou afficher les tâches déjà complétées.
 
 ---
@@ -202,9 +209,11 @@ Fourni avec les routines essentielles du jeu pré-remplies et traduites :
 | **`Alt + O`** | **Afficher / Réduire l'overlay complet** (bascule avec le mini-widget rétracté). |
 | **`Alt + L`** | **Activer / Désactiver le mode traversée de clics** (laisse passer tous les clics dans Aion 2). |
 | **Clic gauche + Glisser sur l'en-tête** | Déplacer le HUD n'importe où sur vos écrans. |
-| **Bouton curseurs (en-tête)** | Ouvrir le sélecteur rapide d'opacité (de 40% à 100%). |
+| **Bouton curseurs (en-tête)** | Ouvrir le sélecteur rapide d'opacité (40%–100% en mode Classique, 0%–100% en mode Ultra-Minimal). |
+| **Bouton Réduire / Agrandir (en-tête)** | Basculer instantanément entre le **HUD Classique** (`460×680`) et le **Mode Ultra-Minimal** (`350×440`). |
 | **Bouton épingle (en-tête)** | Basculer la priorité "Toujours au premier plan". |
-| **Clic droit sur une tâche** | Ouvrir le menu contextuel (Modifier les détails ou Supprimer). |
+| **Bouton Dossier+ (barre d'onglets)** | Créer ou gérer vos onglets personnalisés et leurs cycles de reset. |
+| **Clic droit sur une tâche / onglet perso** | Ouvrir le menu contextuel (Modifier les détails ou Supprimer). |
 | **Poignée de glissement** | Glisser-déposer pour réordonner vos tâches dans chaque onglet. |
 | **Clic sur le System Tray** | Afficher ou masquer rapidement l'overlay depuis la barre d'état. |
 
